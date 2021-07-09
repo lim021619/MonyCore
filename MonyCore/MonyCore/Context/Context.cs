@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Xamarin.Essentials;
 namespace MonyCore.Context
 {
-    class Context:DbContext
+   public class Context:DbContext
     {
         public DbSet<Model.Many> Manies { get; set; }
         public DbSet<Model.Consumption> Consumptions { get; set; }

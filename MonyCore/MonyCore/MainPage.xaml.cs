@@ -27,16 +27,32 @@ namespace MonyCore
 
             using (Context.Context context = new Context.Context())
             {
+                bool one = false;
+                bool two = false;
+                decimal result = 0;
                 Model.Many many = context.Manies.FirstOrDefault(m => m.id == 1);
+
                 if (many != null)
                 {
                     if (many.AllMany != 0)
                     {
                         ConsumptionText.Text = many.AllMany.ToString("c");
+                        one = true;
                     }
                     if (many.AllManyIncom != 0)
                     {
                         IncomText.Text = many.AllManyIncom.ToString("c");
+                        two = true;
+                    }
+                    if (one && two)
+                    {
+                        result = many.AllManyIncom - many.AllMany ;
+                        AllManyNow.Text = "";
+                        AllManyNow.Text = result.ToString("c");
+                    }
+                    else if(one)
+                    {
+                        AllManyNow.Text = many.AllMany.ToString("c");
                     }
                 }
                 else

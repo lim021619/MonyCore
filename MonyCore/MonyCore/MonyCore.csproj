@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Model\HelloPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\AddCon.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
