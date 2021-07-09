@@ -1,0 +1,28 @@
+﻿
+
+.AlbelNam
+{
+ 
+}
+
+
+.ContenerTwo{
+    padding:5;
+    right:0;
+}
+.ContenerOne{
+    padding:5;
+    left:0;
+}
+
+.text-susseces{
+
+    color:lawngreen;
+    
+}
+
+.text-danger {
+
+    color:red;
+
+}

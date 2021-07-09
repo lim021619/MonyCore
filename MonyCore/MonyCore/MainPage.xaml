@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MonyCore;assembly=MonyCore"
+             x:Class="MonyCore.MainPage">
+
+    <ContentPage.Resources>
+
+        <StyleSheetExtension Source="/Css/main.css" />
+
+    </ContentPage.Resources>
+    
+    
+
+        <ScrollView>
+            <StackLayout Padding="5" Orientation="Vertical">
+            <Frame BackgroundColor="#03CB90" Padding="24" CornerRadius="10" Margin="0, 20, 0, 20">
+                <Label x:Name="AlbelName" StyleClass="AlbelNam" Text="Добро пожаловать в контроль финансов" HorizontalTextAlignment="Center" TextColor="White"  FontSize="36"/>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal" Margin="5, 0, 5, 0" HeightRequest="100">
+
+
+                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" Padding="5" BackgroundColor="#7CD2FD" BorderColor="#7CD2FD">
+                    <Frame  CornerRadius="7" HorizontalOptions="FillAndExpand" BackgroundColor="#6EB4D7" >
+                        <Label x:Name="IncomText" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="24" TextColor="White">Доходы</Label>
+                    </Frame>
+
+                </Frame>
+
+                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" Padding="5" BackgroundColor="#BE7070" BorderColor="#DF7C7C">
+                    <Frame CornerRadius="6" HorizontalOptions="FillAndExpand" BackgroundColor="#BE7070" >
+                        <Label x:Name="ConsumptionText" HorizontalOptions="Fill"   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="24" TextColor="White">Расходы</Label>
+                    </Frame>
+                </Frame>
+
+
+            </StackLayout>
+
+            <Label HorizontalOptions="FillAndExpand" BackgroundColor="Gray" HeightRequest="1" Margin="0, 20, 0, 10"></Label>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 4, 0 , 0">
+                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" BackgroundColor="#62668F" BorderColor="#7573A0">
+                    <Button x:Name="NewCon" Clicked="NewCon_Clicked" HorizontalOptions="Fill" BackgroundColor="Transparent" FontSize="18" TextColor="White" Text="Добавить доход" ></Button>
+                </Frame>
+            </StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 4, 0 , 0">
+                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" BackgroundColor="#62668F" BorderColor="#7573A0">
+                    <Button FontSize="18" x:Name="NewInc" HorizontalOptions="Fill" Clicked="NewInc_Clicked" BackgroundColor="Transparent" TextColor="White"  Text="Добавить расход"></Button>
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+        </ScrollView>
+
+
+   
+
+</ContentPage>
