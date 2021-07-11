@@ -14,12 +14,21 @@
 
         <ScrollView>
         <StackLayout BackgroundColor="#C3EEE8" Padding="5" Orientation="Vertical">
-           
-                <Label StyleClass="AlbelNam" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0" Text="Средств на данный момент" TextColor="White"  FontSize="25"/>
+
+            <StackLayout Margin="10">
+
+
+                <Frame BackgroundColor="#ADF0E7" CornerRadius="20" Padding="10">
+                    <StackLayout HorizontalOptions="Fill">
+                        <Label StyleClass="AlbelNam" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0" Text="Средств на данный момент" TextColor="White"  FontSize="25"/>
+                        <Label x:Name="AllManyNow" StyleClass="AlbelNam" Text="0" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="White"  FontSize="25"/>
+                    </StackLayout>
+                </Frame>
+               
+
+            </StackLayout>
             
-          
-                <Label x:Name="AllManyNow" StyleClass="AlbelNam" Text="0" HorizontalTextAlignment="Center" TextColor="White"  FontSize="20"/>
-           
+                
 
             <StackLayout Orientation="Horizontal" Margin="5, 0, 5, 0" HeightRequest="100">
 
