@@ -14,14 +14,14 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                 FontSize="30"    HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  />
+            
             <StackLayout>
-                <Frame HorizontalOptions="Fill" BackgroundColor="#7D6FCA" HasShadow="True" Padding="30">
-                    <Button FontSize="25" TextColor="White" BackgroundColor="#7D6FCA" CornerRadius="5" BorderColor="#877ACD" Text="Продолжить" Clicked="Button_Clicked" HorizontalOptions="Fill"></Button>
-                </Frame>
+                
+                    <Button FontSize="30" TextColor="White" BackgroundColor="#7D6FCA" BorderColor="#877ACD" Text="Продолжить" Clicked="Button_Clicked" HorizontalOptions="Fill"></Button>
+                
             </StackLayout>
 
             <StackLayout x:Name="Loadtext">
-                
                 <Label x:Name="load" Text="Идет загрузка данных"></Label>
             </StackLayout>
             

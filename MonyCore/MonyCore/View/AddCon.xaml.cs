@@ -13,17 +13,22 @@ namespace MonyCore.View
     public partial class AddCon : ContentPage
     {
         List<Frame> Frames { get; set; }
+        
+        double HeightDivHisytory { get; set; }
+        bool toggleHistory = true;
 
         public AddCon()
         {
             InitializeComponent();
 
             Frames = new List<Frame>();
+        
         }
 
         protected async override void OnAppearing()
         {
             await ClearFrames();
+            CountIncom.Text = MainPage.CountIncome.ToString();
         }
 
         async Task initWinData()
@@ -31,8 +36,10 @@ namespace MonyCore.View
 
             using (Context.Context context = new Context.Context())
             {
-
-                foreach (var item in context.Consumptions.ToList())
+                List<MonyCore.Model.Consumption> con = context.Consumptions.ToList();
+                con.Reverse();
+                MainPage.CountIncome = con.Count;
+                foreach (var item in con)
                 {
                     Frame frame = new Frame();
                     frame.HorizontalOptions = LayoutOptions.FillAndExpand;
@@ -50,8 +57,8 @@ namespace MonyCore.View
                     Frames.Add(frame);
                 }
 
-
             }
+            
         }
 
         async Task ClearFrames()
@@ -81,11 +88,32 @@ namespace MonyCore.View
                 {
                     many.AddConsumptions(consumption);
                     context.SaveChanges();
+                    CountIncom.Text = Convert.ToString(Convert.ToInt32(CountIncom.Text) + 1);
 
                     await ClearFrames();
 
                 }
             }
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            if (toggleHistory)
+            {
+                HeightDivHisytory = DivHistory.Height;
+                DivHistory.HeightRequest = 0;
+                toggleHistory = false;
+            }
+            else
+            {
+               
+                DivHistory.HeightRequest = HeightDivHisytory;
+                toggleHistory = true;
+            }
+
+
+        }
+
+       
     }
 }

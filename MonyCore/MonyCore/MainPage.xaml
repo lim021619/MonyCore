@@ -4,70 +4,75 @@
              xmlns:local="clr-namespace:MonyCore;assembly=MonyCore"
              x:Class="MonyCore.MainPage">
 
-    <ContentPage.Resources>
-
-        <StyleSheetExtension Source="/Css/main.css" />
-
-    </ContentPage.Resources>
-    
-    
-
-        <ScrollView>
-        <StackLayout BackgroundColor="#C3EEE8" Padding="5" Orientation="Vertical">
-
-            <StackLayout Margin="10">
 
 
-                <Frame BackgroundColor="#ADF0E7" CornerRadius="20" Padding="10">
-                    <StackLayout HorizontalOptions="Fill">
-                        <Label StyleClass="AlbelNam" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0" Text="Средств на данный момент" TextColor="White"  FontSize="25"/>
-                        <Label x:Name="AllManyNow" StyleClass="AlbelNam" Text="0" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="White"  FontSize="25"/>
-                    </StackLayout>
-                </Frame>
-               
+    <StackLayout BackgroundColor="Beige" Padding="5" Orientation="Vertical">
 
-            </StackLayout>
-            
-                
-
-            <StackLayout Orientation="Horizontal" Margin="5, 0, 5, 0" HeightRequest="100">
+        <StackLayout Margin="10">
 
 
-                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" Padding="5" BackgroundColor="#7CD2FD" BorderColor="#7CD2FD">
-                    <Frame  CornerRadius="7" HorizontalOptions="FillAndExpand" BackgroundColor="#6EB4D7" >
-                        <Label x:Name="IncomText" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                   FontSize="20" TextColor="White">Доходы</Label>
-                    </Frame>
+            <Frame BackgroundColor="#E8E88B" CornerRadius="10" Padding="10">
+                <StackLayout HorizontalOptions="Fill">
+                    <Label StyleClass="AlbelNam" HorizontalTextAlignment="Center" Margin="0, 5, 0, 0" Text="Средств на данный момент" TextColor="White"  FontSize="25"/>
+                    <Label x:Name="AllManyNow" StyleClass="AlbelNam" Text="0" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="White"  FontSize="25"/>
+                </StackLayout>
+            </Frame>
 
-                </Frame>
-
-                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" Padding="5" BackgroundColor="#BE7070" BorderColor="#DF7C7C">
-                    <Frame CornerRadius="6" HorizontalOptions="FillAndExpand" BackgroundColor="#BE7070" >
-                        <Label x:Name="ConsumptionText" HorizontalOptions="Fill"   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                   FontSize="20" TextColor="White">Расходы</Label>
-                    </Frame>
-                </Frame>
-
-
-            </StackLayout>
-
-            <Label HorizontalOptions="FillAndExpand" BackgroundColor="Gray" HeightRequest="1" Margin="0, 20, 0, 10"></Label>
-
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 4, 0 , 0">
-                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" BackgroundColor="#62668F" BorderColor="#7573A0">
-                    <Button x:Name="NewCon" Clicked="NewCon_Clicked" HorizontalOptions="Fill" BackgroundColor="Transparent" FontSize="18" TextColor="White" Text="Добавить доход" ></Button>
-                </Frame>
-            </StackLayout>
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 4, 0 , 0">
-                <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" BackgroundColor="#62668F" BorderColor="#7573A0">
-                    <Button FontSize="18" x:Name="NewInc" HorizontalOptions="Fill" Clicked="NewInc_Clicked" BackgroundColor="Transparent" TextColor="White"  Text="Добавить расход"></Button>
-                </Frame>
-            </StackLayout>
 
         </StackLayout>
+
+
+
+        <StackLayout Orientation="Horizontal" Margin="2, 0, 2, 0" HeightRequest="100">
+
+
+            <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" Padding="3" BackgroundColor="#7CD2FD" BorderColor="#7CD2FD">
+                <Frame  CornerRadius="7" HorizontalOptions="FillAndExpand" BackgroundColor="#6EB4D7" >
+                    <Label x:Name="IncomText" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="20" TextColor="White" FontAttributes="Bold">Доходы</Label>
+                </Frame>
+
+            </Frame>
+
+            <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" Padding="3" BackgroundColor="#BE7070" BorderColor="#DF7C7C">
+                <Frame CornerRadius="6" HorizontalOptions="FillAndExpand" BackgroundColor="#BE7070" >
+                    <Label x:Name="ConsumptionText" HorizontalOptions="Fill"   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="20" TextColor="White" FontAttributes="Bold">Расходы</Label>
+                </Frame>
+            </Frame>
+
+
+        </StackLayout>
+
+        <Label HorizontalOptions="FillAndExpand" BackgroundColor="Gray" HeightRequest="1" Margin="0, 5, 0, 5"></Label>
+
+        <ScrollView Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 4, 0 , 0">
+                    <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" BackgroundColor="#62668F" BorderColor="#7573A0">
+                        <Button x:Name="NewCon" Clicked="NewCon_Clicked" HorizontalOptions="Fill" BackgroundColor="Transparent" FontSize="18" TextColor="White" Text="Доходы" ></Button>
+                    </Frame>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 4, 0 , 0">
+                    <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" HasShadow="True" BackgroundColor="#62668F" BorderColor="#7573A0">
+                        <Button FontSize="18" x:Name="NewInc" HorizontalOptions="Fill" Clicked="NewInc_Clicked" BackgroundColor="Transparent" TextColor="White"  Text="Расходы"></Button>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+          
         </ScrollView>
 
+        <StackLayout HorizontalOptions="Fill" Margin="0, 150, 0, 0" Padding="0">
+            <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                Я рад что вы используете наше приложение. Надеюсь оно поможет вам с решением ваших задач.
+                
+                P.S Limbos Manterei
+            </Label>
+        </StackLayout>
+    
+    </StackLayout>
 
-   
+
+
 
 </ContentPage>

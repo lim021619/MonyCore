@@ -12,10 +12,13 @@ namespace MonyCore
     public partial class MainPage : ContentPage
     {
         public Model.Many Many { get; set; }
+        public static int CountConsumption { get; set; }
+        public static int CountIncome { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
+            CountIncome = CountConsumption = 0;
         }
 
 
@@ -37,11 +40,13 @@ namespace MonyCore
                     if (many.AllMany != 0)
                     {
                         ConsumptionText.Text = many.AllMany.ToString("c");
+                        CountConsumption = many.Consumptions.Count;
                         one = true;
                     }
                     if (many.AllManyIncom != 0)
                     {
                         IncomText.Text = many.AllManyIncom.ToString("c");
+                        CountIncome = many.Incoms.Count;
                         two = true;
                     }
                     if (one && two)

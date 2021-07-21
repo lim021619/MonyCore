@@ -23,7 +23,7 @@ namespace MonyCore.Model
         public Incom(decimal sum)
         {
             Data = DateTime.Now.ToLongDateString();
-            Time = DateTime.Now.ToUniversalTime().ToLongTimeString();
+            Time = DateTime.Now.ToLongTimeString();
             Summ = sum;
         }
     }

@@ -13,24 +13,29 @@ namespace MonyCore.View
     public partial class AddInc : ContentPage
     {
         List<Frame> Frames { get; set; }
-
+        double HeightDivHisytory { get; set; }
+        bool toggleHistory = true;
         public AddInc()
         {
             InitializeComponent();
             Frames = new List<Frame>();
+       
         }
 
         protected async override void OnAppearing()
         {
             await ClearFrames();
+          CountCon.Text = MainPage.CountConsumption.ToString();
         }
 
         async Task InitWinData()
         {
             using (Context.Context context = new Context.Context())
             {
-
-                foreach (var item in context.Incoms.ToList())
+                List<Model.Incom> inc = context.Incoms.ToList();
+                inc.Reverse();
+                MainPage.CountConsumption = inc.Count;
+                foreach (var item in inc)
                 {
                     Frame frame = new Frame();
                     frame.HorizontalOptions = LayoutOptions.FillAndExpand;
@@ -81,10 +86,26 @@ namespace MonyCore.View
                 {
                     many.AddIncoms(incom);
                     context.SaveChanges();
-
+                    CountCon.Text = Convert.ToString(Convert.ToInt32(CountCon.Text) + 1);
                     await ClearFrames();
                 }
              
+            }
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            if (toggleHistory)
+            {
+                HeightDivHisytory = DivHistory.Height;
+                DivHistory.HeightRequest = 0;
+                toggleHistory = false;
+            }
+            else
+            {
+
+                DivHistory.HeightRequest = HeightDivHisytory;
+                toggleHistory = true;
             }
         }
     }
