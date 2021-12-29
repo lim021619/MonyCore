@@ -28,7 +28,7 @@ namespace MonyCore.View
         protected async override void OnAppearing()
         {
             await ClearFrames();
-            CountIncom.Text = MainPage.CountIncome.ToString();
+            //CountIncom.Text = MainPage.CountIncome.ToString();
         }
 
         async Task initWinData()
@@ -36,9 +36,9 @@ namespace MonyCore.View
 
             using (Context.Context context = new Context.Context())
             {
-                List<MonyCore.Model.Consumption> con = context.Consumptions.ToList();
+                List<MonyCore.Model.Incom> con = context.Incoms.ToList();
                 con.Reverse();
-                MainPage.CountIncome = con.Count;
+                //MainPage.CountIncome = con.Count;
                 foreach (var item in con)
                 {
                     Frame frame = new Frame();
@@ -57,6 +57,7 @@ namespace MonyCore.View
                     Frames.Add(frame);
                 }
 
+                CountIncom.Text = con.Count.ToString();
             }
             
         }
@@ -78,21 +79,27 @@ namespace MonyCore.View
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+
             using (Context.Context context = new Context.Context())
             {
-                Model.Consumption consumption = new Model.Consumption(Convert.ToDecimal(Number.Text));
+                Model.Incom incom = new Model.Incom(Convert.ToDecimal(Number.Text));
 
                 Model.Many many = context.Manies.FirstOrDefault(m => m.id == 1);
-
                 if (many != null)
                 {
-                    many.AddConsumptions(consumption);
-                    context.SaveChanges();
-                    CountIncom.Text = Convert.ToString(Convert.ToInt32(CountIncom.Text) + 1);
+                    try
+                    {
+                        many.AddIncoms(incom);
+                        context.SaveChanges();
+                        CountIncom.Text = Convert.ToString(Convert.ToInt32(CountIncom.Text) + 1);
+                        await ClearFrames();
+                    }
+                    catch (Exception ex)
+                    {
 
-                    await ClearFrames();
-
+                    }
                 }
+
             }
         }
 

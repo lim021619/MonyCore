@@ -5,6 +5,10 @@ using System.Text;
 
 namespace MonyCore.Model
 {
+
+    /// <summary>
+    /// Класс представляющий сводку финансов
+    /// </summary>
    public class Many : IItemForContext
     {
         public event EventHandler Click;
@@ -26,7 +30,7 @@ namespace MonyCore.Model
 
         public int id { get; set; }
 
-        
+        public int NumberInArhive { get; set; }
 
         public Many()
         {

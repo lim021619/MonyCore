@@ -25,16 +25,16 @@ namespace MonyCore.View
         protected async override void OnAppearing()
         {
             await ClearFrames();
-          CountCon.Text = MainPage.CountConsumption.ToString();
+          //CountCon.Text = MainPage.CountConsumption.ToString();
         }
 
         async Task InitWinData()
         {
             using (Context.Context context = new Context.Context())
             {
-                List<Model.Incom> inc = context.Incoms.ToList();
+                List<Model.Consumption> inc = context.Consumptions.ToList();
                 inc.Reverse();
-                MainPage.CountConsumption = inc.Count;
+                //MainPage.CountConsumption = inc.Count;
                 foreach (var item in inc)
                 {
                     Frame frame = new Frame();
@@ -54,6 +54,8 @@ namespace MonyCore.View
                     History.Children.Add(frame);
                     Frames.Add(frame);
                 }
+
+                CountCon.Text = inc.Count.ToString();
 
 
             }
@@ -79,17 +81,28 @@ namespace MonyCore.View
         {
             using (Context.Context context = new Context.Context())
             {
-                Model.Incom incom = new Model.Incom(Convert.ToDecimal(Number.Text));
+                Model.Consumption consumption = new Model.Consumption(Convert.ToDecimal(Number.Text));
 
-                Model.Many many = context.Manies.FirstOrDefault(m=>m.id == 1);
+                Model.Many many = context.Manies.FirstOrDefault(m => m.id == 1);
+
                 if (many != null)
                 {
-                    many.AddIncoms(incom);
-                    context.SaveChanges();
-                    CountCon.Text = Convert.ToString(Convert.ToInt32(CountCon.Text) + 1);
-                    await ClearFrames();
+                    try
+                    {
+                        many.AddConsumptions(consumption);
+                        context.SaveChanges();
+                        CountCon.Text = Convert.ToString(Convert.ToInt32(CountCon.Text) + 1);
+                        await ClearFrames();
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                   
+
+
                 }
-             
             }
         }
 

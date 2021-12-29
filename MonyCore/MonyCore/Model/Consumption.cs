@@ -1,11 +1,16 @@
 ﻿using MonyCore.Interfases;
+using MonyCore.Logic;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MonyCore.Model
 {
-    public class Consumption : IItemForContext
+
+    /// <summary>
+    /// Класс представляющий расходы
+    /// </summary>
+    public class Consumption : IItemForContext, IFinObjecte
     {
         public int id { get ; set ; }
         public string Data { get; set; }
@@ -25,6 +30,11 @@ namespace MonyCore.Model
             Data = DateTime.Now.ToLongDateString();
             Time = DateTime.Now.ToLongTimeString();
             Summ = sum;
+        }
+
+        public ViewData GetDataView()
+        {
+            return new ViewData { Text = $"Потрачено {Summ}", Deteil = $"{Data} : {Time}" };
         }
     }
 }

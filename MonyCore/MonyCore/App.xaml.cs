@@ -11,7 +11,7 @@ namespace MonyCore
         {
             InitializeComponent();
          
-            MainPage = new Model.HelloPage();
+            MainPage = new MainPage();
 
         }
 
