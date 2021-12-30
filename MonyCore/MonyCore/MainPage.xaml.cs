@@ -117,7 +117,9 @@ namespace MonyCore
             AllManyNow.SetBinding(Label.TextProperty, "RowAllManyUser");
             ConsumptionText.SetBinding(Label.TextProperty, "RowConsumption");
             IncomText.SetBinding(Label.TextProperty, "Rowincom");
-           
+            RowAllManyUser = 0.ToString("c");
+            RowConsumption = 0.ToString("c");
+            Rowincom = 0.ToString("c");
             
         }
         /// <summary>
@@ -286,44 +288,46 @@ namespace MonyCore
 
                 using (Context.Context context = new Context.Context())
                 {
-
-                    var f = context.Manies.Include(i => i.Incoms).Include(i => i.Consumptions).AsNoTracking().ToList();
-                     many = context.Manies.Include(i => i.Incoms).Include(i => i.Consumptions).AsNoTracking().FirstOrDefault(i => i.id == 1);
-                    
-                }
-
-                using (Context.Context context = new Context.Context())
-                {
-                    many.id = 0;
-                    many.NumberInArhive = context.Manies.Count() + 1;
-                    foreach (var item in many.Incoms)
+                     many = context.Manies.Include(i => i.Incoms).Include(i => i.Consumptions).FirstOrDefault(i => i.id == 1);
+                    Model.Many many2 = new Model.Many();
+                    many2.AllMany = many.AllMany;
+                    many2.DateCreate = many.DateCreate;
+                    many2.NumberInArhive = context.Manies.Count() + 1;
+                    many2.AllManyIncom = many.AllManyIncom;
+                    foreach (var item in incoms)
                     {
-                        item.Many = many;
+                        var i = new Model.Incom {Data = item.Data, 
+                        Many = many2,
+                        Summ = item.Summ,
+                        Time = item.Time,
+
+                        };
+                        many2.Incoms.Add(i);
                     }
-                    foreach (var item in many.Consumptions)
+                    foreach (var item in consumptions)
                     {
-                        item.Many = many;
-                    }
-                    context.Manies.Add(many);
+                        var i = new Model.Consumption
+                        {
+                            Data = item.Data,
+                            Many = many2,
+                            Summ = item.Summ,
+                            Time = item.Time,
 
-                    try
-                    {
+                        };
 
-                        context.SaveChanges();
-                    }
-                    catch (Exception e)
-                    {
-
-                        
+                        many2.Consumptions.Add(i);
                     }
 
-                    many = context.Manies.AsNoTracking().FirstOrDefault(i => i.id == 1);
+                    context.Manies.Add(many2);
+
+                    many.AllManyIncom = many.AllMany = many.AllMany = 0;
+                    many.DateCreate = DateTime.Now.ToString();
+                    many.DateArhive = String.Empty;
                     many.Incoms.Clear();
                     many.Consumptions.Clear();
-                    many.AllManyIncom = 0;
-                    many.AllMany = 0;
-                    context.SaveChanges();
+
                     
+                    context.SaveChanges();
                 }
 
             }
@@ -335,6 +339,11 @@ namespace MonyCore
                 RecentOperations.ItemsSource = null;
             });
             ViewDatas.Clear();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListArhive());
         }
     }
 }

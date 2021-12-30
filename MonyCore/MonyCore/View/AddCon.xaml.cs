@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,10 +37,13 @@ namespace MonyCore.View
 
             using (Context.Context context = new Context.Context())
             {
-                List<MonyCore.Model.Incom> con = context.Incoms.ToList();
-                con.Reverse();
+                Model.Many many = context.Manies.
+                  Include(i => i.Incoms).
+                  FirstOrDefault(i => i.id == 1);
+                List<MonyCore.Model.Incom> inc = many.Incoms;
+                inc.Reverse();
                 //MainPage.CountIncome = con.Count;
-                foreach (var item in con)
+                foreach (var item in inc)
                 {
                     Frame frame = new Frame();
                     frame.HorizontalOptions = LayoutOptions.FillAndExpand;
@@ -57,7 +61,7 @@ namespace MonyCore.View
                     Frames.Add(frame);
                 }
 
-                CountIncom.Text = con.Count.ToString();
+                CountIncom.Text = inc.Count.ToString();
             }
             
         }

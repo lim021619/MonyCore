@@ -93,7 +93,8 @@
         </Label>
         <StackLayout Padding="0" Margin="0" HorizontalOptions="Fill">
             <ListView x:Name="RecentOperations" SeparatorVisibility="Default"
-                      SeparatorColor="Silver">
+                      SeparatorColor="Silver" 
+                      SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Text}" 
@@ -127,17 +128,44 @@
                     </Frame>
 
 
-                    <Frame CornerRadius="10" 
+                    <SwipeView HorizontalOptions="Fill">
+                        <SwipeView.BottomItems>
+                            <SwipeItems>
+                                <!--<SwipeItem Text="ok" BackgroundColor="Blue">
+                                    
+                                </SwipeItem>-->
+                                <SwipeItemView HorizontalOptions="Fill"
+                                               >
+                                    <Frame CornerRadius="10" Padding="0"
+                                           HasShadow="False" BackgroundColor="White">
+                                        <Button HorizontalOptions="Fill"
+                                                VerticalOptions="Center"
+                                                Clicked="Button_Clicked"
+                                                Text="Открыть"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Gray"
+                                                FontSize="16"
+                                                >
+                                        </Button>
+                                    </Frame>
+                                </SwipeItemView>
+                            </SwipeItems>
+                        </SwipeView.BottomItems>
+                        <Frame CornerRadius="10" 
                            HorizontalOptions="CenterAndExpand" 
                            HasShadow="True"
                            BorderColor="Gray"
                                Padding="0">
-                        <Button x:Name="Arhive" IsVisible="False" IsEnabled="False"
+                            <Button x:Name="Arhive"
                             Padding="15" Clicked="NewCon_Clicked_1" 
                             HorizontalOptions="Center"
                             BackgroundColor="Transparent"
-                            FontSize="18" TextColor="Gray" Text="В архив" ></Button>
-                    </Frame>
+                            FontSize="18" TextColor="Gray" Text="В архив" 
+                                ></Button>
+                        </Frame>
+                    </SwipeView>
+                    
+                  
 
 
 

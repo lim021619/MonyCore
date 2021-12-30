@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonyCore.View.ListArhive">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<ListView x:Name="listArhive" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame Padding="5" CornerRadius="10" Margin="5">
+                                    <StackLayout Padding="0" Margin="0">
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Начало ведения : "></Label>
+                                            <Label Text="{Binding DateCreate}"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Дата архивации : "></Label>
+                                            <Label Text="{Binding DateArhive}"></Label>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                           
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+            <CollectionView x:Name="listArhive">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame Padding="5" CornerRadius="10" Margin="5">
+                                <StackLayout Padding="0" Margin="0">
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Начало ведения : "></Label>
+                                        <Label Text="{Binding DateCreate}"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Дата архивации : "></Label>
+                                        <Label Text="{Binding DateArhive}"></Label>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

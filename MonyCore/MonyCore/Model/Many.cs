@@ -9,8 +9,10 @@ namespace MonyCore.Model
     /// <summary>
     /// Класс представляющий сводку финансов
     /// </summary>
-   public class Many : IItemForContext
+    public class Many : IItemForContext
     {
+        private int numberInArhive;
+
         public event EventHandler Click;
 
 
@@ -30,12 +32,25 @@ namespace MonyCore.Model
 
         public int id { get; set; }
 
-        public int NumberInArhive { get; set; }
+        public int NumberInArhive { get => numberInArhive; set
+            {
+                numberInArhive = value;
+                if (numberInArhive != 0 )
+                {
+                    DateArhive = DateTime.Now.ToString();
+                }
+            }
+        }
+
+        public string DateArhive { get; set; }
+
+        public string DateCreate { get; set; }
 
         public Many()
         {
             Incoms = new List<Incom>();
             Consumptions = new List<Consumption>();
+            DateCreate = DateTime.Now.ToString();
         }
 
         public void AddIncoms(Incom incom)
@@ -45,7 +60,7 @@ namespace MonyCore.Model
         }
         public void AddConsumptions(Consumption consumption)
         {
-            
+
             AllManyIncom += consumption.Summ;
             Consumptions.Add(consumption);
 
