@@ -2,9 +2,7 @@
 using MonyCore.View;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -120,6 +118,12 @@ namespace MonyCore
             RowAllManyUser = 0.ToString("c");
             RowConsumption = 0.ToString("c");
             Rowincom = 0.ToString("c");
+            ToolbarItem arhiv =new ToolbarItem();
+            arhiv.Text = "Архив";
+            arhiv.Clicked += Button_Clicked;
+            ToolbarItems.Add(arhiv);
+            Title = "Главная";
+
             
         }
         /// <summary>
