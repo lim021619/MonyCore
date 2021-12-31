@@ -46,8 +46,10 @@ namespace MonyCore.View
                     Frame frame = new Frame();
                     frame.HorizontalOptions = LayoutOptions.FillAndExpand;
                     frame.CornerRadius = 10f;
-                    frame.BackgroundColor = Color.FromRgb(60, 213, 150);
                     
+                    frame.Margin = new Thickness(0);
+                    frame.HasShadow = true;
+
 
                     Label label = new Label();
                     
@@ -55,6 +57,7 @@ namespace MonyCore.View
                     label.HorizontalOptions = LayoutOptions.FillAndExpand;
                     label.Text = $" Сумма - {item.Summ.ToString("c")} Дата - {item.Data} Время - {item.Time}";
                     label.FontSize = 18;
+                    label.TextColor = Color.Gray;
                     frame.Content = label;
 
                     History.Children.Add(frame);

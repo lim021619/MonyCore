@@ -168,15 +168,15 @@ namespace MonyCore
 
                             one = true;
                         }
-                        if (many.AllManyIncom != 0)
+                        if (many.AllManyConsumption != 0)
                         {
-                         Incom = ((int)many.AllManyIncom);
+                         Incom = ((int)many.AllManyConsumption);
 
                             two = true;
                         }
                         if (one && two)
                         {
-                            result = many.AllMany - many.AllManyIncom;
+                            result = many.AllMany - many.AllManyConsumption;
                             AllManyUser = ((int)result);
                         }
                         else if (one)
@@ -219,7 +219,7 @@ namespace MonyCore
                 {
                    
                     if (i <= incoms.Count() - 1) finObjectes.Add(incoms[i]);
-                    if (i <=consumptions.Count()-1) finObjectes.Add(consumptions[i]);
+                    if (i <= consumptions.Count()-1) finObjectes.Add(consumptions[i]);
                 }
 
                 finObjectes.Reverse();
@@ -297,7 +297,10 @@ namespace MonyCore
                     many2.AllMany = many.AllMany;
                     many2.DateCreate = many.DateCreate;
                     many2.NumberInArhive = context.Manies.Count() + 1;
-                    many2.AllManyIncom = many.AllManyIncom;
+                    many2.AllManyConsumption = many.AllManyConsumption;
+                    many2.CountCounsuption = many.CountCounsuption;
+                    many2.CountIncom = many.CountIncom;
+
                     foreach (var item in incoms)
                     {
                         var i = new Model.Incom {Data = item.Data, 
@@ -324,7 +327,13 @@ namespace MonyCore
 
                     context.Manies.Add(many2);
 
-                    many.AllManyIncom = many.AllMany = many.AllMany = 0;
+                    many.AllManyConsumption =
+                     many.AllMany =
+                      many.AllMany =
+                       many.CountCounsuption =
+                        many.CountIncom = 0;
+                   
+
                     many.DateCreate = DateTime.Now.ToString();
                     many.DateArhive = String.Empty;
                     many.Incoms.Clear();

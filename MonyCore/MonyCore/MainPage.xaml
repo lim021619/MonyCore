@@ -7,7 +7,7 @@
 
 
     <StackLayout x:Name="rootcont"
-                 BackgroundColor="Beige" Padding="15">
+                 BackgroundColor="White" Padding="15">
 
         <StackLayout>
 

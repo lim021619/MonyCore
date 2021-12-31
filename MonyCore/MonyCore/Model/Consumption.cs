@@ -34,7 +34,7 @@ namespace MonyCore.Model
 
         public ViewData GetDataView()
         {
-            return new ViewData { Text = $"Потрачено {Summ}", Deteil = $"{Data} : {Time}" };
+            return new ViewData { Text = $"Потрачено {Summ.ToString("c")}", Deteil = $"{Data} : {Time}" };
         }
     }
 }

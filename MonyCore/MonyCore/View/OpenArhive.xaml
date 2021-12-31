@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonyCore.View.OpenArhive">
+    <ContentPage.Content>
+        <StackLayout Padding="10" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="Root" Margin="10"></StackLayout>
+            <Button Clicked="Button_Clicked" 
+                    Text="Удалить"
+                    HorizontalOptions="Center"
+                    VerticalOptions="EndAndExpand"
+                    CornerRadius="10" 
+                    Padding="10"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="LightCoral"
+                    BorderColor="LightCoral"
+                    BorderWidth="1"
+                    BackgroundColor="White">
+            </Button>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

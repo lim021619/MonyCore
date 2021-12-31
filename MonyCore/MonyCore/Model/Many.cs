@@ -24,7 +24,7 @@ namespace MonyCore.Model
         /// <summary>
         /// Расходы
         /// </summary>
-        public decimal AllManyIncom { get; set; }
+        public decimal AllManyConsumption { get; set; }
 
         public List<Incom> Incoms { get; private set; }
 
@@ -42,9 +42,22 @@ namespace MonyCore.Model
             }
         }
 
+        /// <summary>
+        /// Дата архивации
+        /// </summary>
         public string DateArhive { get; set; }
-
+        /// <summary>
+        /// Дата начала ведения
+        /// </summary>
         public string DateCreate { get; set; }
+        /// <summary>
+        /// Количество записей по доходам
+        /// </summary>
+        public int CountIncom { get; set; }
+        /// <summary>
+        /// Количество записей расходов
+        /// </summary>
+        public int CountCounsuption { get; set; }
 
         public Many()
         {
@@ -57,14 +70,39 @@ namespace MonyCore.Model
         {
             AllMany += incom.Summ;
             Incoms.Add(incom);
+            CountIncom++;
         }
         public void AddConsumptions(Consumption consumption)
         {
 
-            AllManyIncom += consumption.Summ;
+            AllManyConsumption += consumption.Summ;
             Consumptions.Add(consumption);
+            CountCounsuption++;
 
         }
+
+        public void AddConsumptionsRange(IEnumerable<Consumption> listCon)
+        {
+            foreach (var item in listCon)
+            {
+                AddConsumptions(item);
+            }
+        }
+
+        public void AddIncomRange(IEnumerable<Incom> listInc)
+        {
+            foreach (var item in listInc)
+            {
+                AddIncoms(item);
+            }
+        }
+
+        public int GetNumberArhive()
+        {
+            return NumberInArhive - 1;
+        }
+
+        
 
     }
 }

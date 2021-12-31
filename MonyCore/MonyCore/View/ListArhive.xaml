@@ -4,38 +4,11 @@
              x:Class="MonyCore.View.ListArhive">
     <ContentPage.Content>
         <StackLayout>
-            <!--<ListView x:Name="listArhive" HorizontalOptions="Fill" VerticalOptions="Fill">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Frame Padding="5" CornerRadius="10" Margin="5">
-                                    <StackLayout Padding="0" Margin="0">
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Начало ведения : "></Label>
-                                            <Label Text="{Binding DateCreate}"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Дата архивации : "></Label>
-                                            <Label Text="{Binding DateArhive}"></Label>
-                                        </StackLayout>
-
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                           
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
-
-            <CollectionView x:Name="listArhive">
+            <CollectionView x:Name="listArhive" SelectionMode="Single" SelectionChanged="listArhive_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                            <Frame Padding="5" CornerRadius="10" Margin="5">
+                        <StackLayout Padding="0" HorizontalOptions="FillAndExpand" BackgroundColor="White"> 
+                            <Frame Padding="10" CornerRadius="10" Margin="10">
                                 <StackLayout Padding="0" Margin="0">
 
                                     <StackLayout Orientation="Horizontal">

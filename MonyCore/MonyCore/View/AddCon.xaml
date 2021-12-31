@@ -9,12 +9,12 @@
             <StackLayout Padding="0" >
                 
                 <StackLayout Orientation="Horizontal" >
-                    <Frame Margin="3" BackgroundColor="Beige" CornerRadius="5" HorizontalOptions="FillAndExpand">
-                        <Label  Text="Страница доходов" TextColor="#3CD596" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"></Label>
+                    <Frame Margin="3" BackgroundColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand">
+                        <Label  Text="Страница доходов" TextColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"></Label>
                     </Frame>
-                    <Frame Margin="3" BackgroundColor="Beige" CornerRadius="5" HorizontalOptions="FillAndExpand">
+                    <Frame Margin="3" BackgroundColor="White" CornerRadius="5" HorizontalOptions="FillAndExpand">
                         <StackLayout Orientation="Horizontal">
-                            <Label  Text="Записей: " TextColor="#3CD596" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"></Label>
+                            <Label  Text="Записей: " TextColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"></Label>
                             <Label x:Name="CountIncom" Text="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" FontSize="20"></Label>
                         </StackLayout>
                     </Frame>
@@ -26,7 +26,7 @@
             
             <Frame Margin="0, 3, 0, 3" HasShadow="True" CornerRadius="10" Padding="0">
                 <StackLayout >
-                    <Label x:Name="labelEnter" TextColor="#3CD596" Text="Введите сумму дохода"
+                    <Label x:Name="labelEnter" TextColor="Gray" Text="Введите сумму дохода"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center" 
@@ -34,19 +34,21 @@
                            FontSize="20"
                            Margin="10"
                            />
-                    <Entry Placeholder="0" x:Name="Number" Keyboard="Numeric" HorizontalOptions="Fill"  TextColor="#3CD596" BackgroundColor="Transparent" HorizontalTextAlignment="Center"></Entry>
-                    <Button x:Name="badd" Text="Добавить" TextColor="#3CD596" Clicked="Button_Clicked" BackgroundColor="Beige" FontSize="18"></Button>
+                    <Entry Placeholder="0" x:Name="Number" Keyboard="Numeric" HorizontalOptions="Fill"  TextColor="Gray" BackgroundColor="Transparent" HorizontalTextAlignment="Center"></Entry>
+                    <Button x:Name="badd" Text="Добавить" FontAttributes="Bold" TextColor="Gray" Clicked="Button_Clicked" BackgroundColor="White" FontSize="18"></Button>
                 </StackLayout>
 
             </Frame>
-            
-            <Button CornerRadius="10" Text="Истроия" HorizontalOptions="FillAndExpand" FontSize="14"
-                  Clicked="Button_Clicked_1"  ></Button>
-            
-            <Frame x:Name="DivHistory" CornerRadius="10"  BackgroundColor="Beige" Padding="0" HorizontalOptions="Fill" >
 
+            <Frame CornerRadius="10" Padding="0" Margin="10" HasShadow="True" BackgroundColor="White">
+                <Button Text="Истроия" TextColor="Gray" BackgroundColor="White" HorizontalOptions="FillAndExpand" FontSize="14"
+                  Clicked="Button_Clicked_1"  ></Button>
+            </Frame>
+            
+            
+           
                 <ScrollView>
-                <StackLayout>
+                <StackLayout x:Name="DivHistory">
                   
                     <StackLayout x:Name="History">
                         
@@ -55,7 +57,7 @@
                 </StackLayout>
             
             </ScrollView>
-            </Frame>
+            
 
 
         </StackLayout>
