@@ -51,7 +51,7 @@ namespace MonyCore.ViewModels
             stateProp.Add("Расходы", $"{Many.AllManyConsumption.ToString("c")}");
             stateProp.Add("Количества записей доходов", Many.CountIncom.ToString());
             stateProp.Add("Количества записей расходов", Many.CountCounsuption.ToString());
-            stateProp.Add("Начало ведения - ", Many.DateArhive);
+            stateProp.Add("Начало ведения - ", Many.DateCreate);
             stateProp.Add("Окончание ведения - ", Many.DateArhive);
             
             return stateProp;
